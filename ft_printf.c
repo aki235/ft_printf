@@ -12,39 +12,57 @@
 
 #include "ft_printf.h"
 
+ft_print_char(int c)
+{
+	write(1, &c, 1);
+	return (1);
+}
+
 int	check_format(va_list args, const char *format)
 {
+	int	print_len;
+
+	print_len = 0;
 	if (*format == 'c')
-		ft_putchar_fd(va_arg(args, int), 1);
+		print_len += ft_print_char(va_arg(args, int));
 	else if (*format == 's')
-		ft_put
+		print_len += ft_print_str(va_arg(args, char *));
+	else if (*format == 'p')
+		//
+	else if (*format == 'd' || *format == 'i')
+		print_len += ft_print_int(va_arg(args, int));
+	else if (*format == 'u')
+		//print_len += ft_print_uint(va_arg(args, unsigned int));
+	else if (*format == 'x')
+		//
+	else if (*format == 'X')
+		//
+	else if (*format == '%')
+		print_len += ft_print_percent();
+	return (print_len);
 }
 
 int	ft_printf(const char *format, ...)
 {
-	int		res;
+	int		print_len;
 	va_list	args;
-	int		tmp;
 
 	va_start(args, format);
-	res = 0;
+	print_len = 0;
 	while (*format != '\0')
 	{
 		if (*format == '%')
 		{
 			if (!*(++format))
 				return (0);//%の次が終端
-			tmp = check_format(args, format);
-			if (tmp == -1)
-				return (-1);//%の次にcspdiuxX以外が来た場合
-			res += tmp;
+			print_len += check_format(args, format);
 			format++;
 		}
 		else
 		{
 			ft_putchar_fd(*format, 1);
 			format++;
-			res++;
+			print_len++;
 		}
 	}
 	va_end(args);
