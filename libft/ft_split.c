@@ -14,8 +14,8 @@
 
 int	how_many_c(char const *s, char c)
 {
-	int	res;
-	int	i;
+	size_t	res;
+	size_t	i;
 
 	res = 0;
 	i = 0;
@@ -55,8 +55,8 @@ void	*ft_split_free(char **res)
 char	**ft_split0(char const *s, char c, char **res)
 {
 	char	**res2;
-	int		start;
-	int		end;
+	size_t	start;
+	size_t	end;
 
 	res2 = res;
 	end = 0;
@@ -75,7 +75,7 @@ char	**ft_split0(char const *s, char c, char **res)
 			return (ft_split_free(res));
 		res2++;
 	}
-	*res2 = 0;
+	*res2 = NULL;
 	return (res);
 }
 
@@ -93,8 +93,8 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	return (split);
 }
-/*
-int	main(void)
+
+/* int	main(void)
 {
 	const char s1[20] = "xxabcxxbcxxaaa";
 	char c = 'x';
@@ -106,5 +106,4 @@ int	main(void)
 	{
 		printf("%s\n", s[i]);
 	}
-}
-*/
+} */

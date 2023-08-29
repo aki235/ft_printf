@@ -14,7 +14,7 @@
 
 int	ft_inchar(char c, char *str)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (str[i] != '\0')
@@ -28,9 +28,9 @@ int	ft_inchar(char c, char *str)
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int		start;
-	int		end;
-	int		i;
+	size_t	start;
+	size_t	end;
+	size_t	i;
 	char	*trim;
 
 	if (!s1 || !set)
@@ -53,11 +53,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 	trim[i - start] = '\0';
 	return (trim);
 }
-/*
-int	main(void)
+
+/* int	main(void)
 {
 	char	s1[20] = "ab2ba2bb";
 	char	s2[20] = "ab";
 	printf("%s", ft_strtrim(s1, s2));
-}
-*/
+} */

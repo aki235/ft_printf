@@ -20,7 +20,7 @@ size_t	ft_strnlen(const char *s, size_t maxlen)
 	while (len < maxlen)
 	{
 		if (!(*s))
-			break;
+			break ;
 		len++;
 		s++;
 	}

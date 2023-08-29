@@ -15,8 +15,8 @@
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*ret;
-	int		i;
-	int		len_s1;
+	size_t	i;
+	size_t	len_s1;
 
 	if (!s1 || !s2)
 		return (NULL);
@@ -38,11 +38,10 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	ret[i] = '\0';
 	return (ret);
 }
-/*
-int	main(void)
+
+/* int	main(void)
 {
 	char	s1[20] = "abcd";
 	char	s2[20] = "123";
 	printf("%s", ft_strjoin(s1, s2));
-}
-*/
+} */
