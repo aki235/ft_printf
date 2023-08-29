@@ -22,8 +22,8 @@ int	check_format(va_list args, const char *format)
 
 int	ft_printf(const char *format, ...)
 {
-	va_list	args;
 	int		res;
+	va_list	args;
 	int		tmp;
 
 	va_start(args, format);

@@ -3,6 +3,9 @@ NAME		= libftprintf.a
 SRCS		= ft_printf.c
 OBJS		= $(SRCS:.c=.o)
 
+CC			= cc
+CFLAGS		= -Wall -Wextra -Werror
+
 LIBFT_PATH	= ./libft
 LIBFT		= $(LIBFT_PATH)/libft.a
 
@@ -26,5 +29,3 @@ fclean:		clean
 re:			fclean all
 
 .PHONY:		all clean fclean re
-
-#flagsを追加する！
