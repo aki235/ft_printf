@@ -8,7 +8,7 @@ SRCS	= ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 		ft_putnbr_fd.c 
 OBJS	= $(SRCS:.c=.o)
 NAME	= libft.a
-CC		= gcc
+CC		= cc
 CFLAGS	= -Wall -Werror -Wextra
 
 all:		$(NAME)
