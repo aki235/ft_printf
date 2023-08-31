@@ -54,10 +54,7 @@ int	ft_printf(const char *format, ...)
 		if (*format == '%')
 		{
 			if (*(++format) == '\0')
-			{
-				return (print_len);
-				va_end(args);
-			}
+				break ;
 			print_len += check_format(args, format);
 			format++;
 		}
