@@ -28,15 +28,15 @@ int	check_format(va_list args, const char *format)
 	else if (*format == 's')
 		print_len += ft_print_str(va_arg(args, char *));
 	else if (*format == 'p')
-		//
+		//print_len += ft_print_ptr(va_arg(args, unsigned long long p));
 	else if (*format == 'd' || *format == 'i')
 		print_len += ft_print_int(va_arg(args, int));
 	else if (*format == 'u')
-		//print_len += ft_print_uint(va_arg(args, unsigned int));
+		print_len += ft_print_uint(va_arg(args, unsigned int));
 	else if (*format == 'x')
-		//16進数、小文字
+		print_len += ft_print_hex(va_arg(args, int), *format);
 	else if (*format == 'X')
-		//16進数、大文字
+		print_len += ft_print_hex(va_arg(args, int), *format);
 	else if (*format == '%')
 		print_len += ft_print_percent();
 	return (print_len);
@@ -53,18 +53,21 @@ int	ft_printf(const char *format, ...)
 	{
 		if (*format == '%')
 		{
-			if (!*(++format))
-				return (0);//%の次が終端
+			if (*(++format) == '\0')
+			{
+				return (print_len);
+				va_end(args);
+			}
 			print_len += check_format(args, format);
 			format++;
 		}
 		else
 		{
 			ft_putchar_fd(*format, 1);
-			format++;
 			print_len++;
+			format++;
 		}
 	}
 	va_end(args);
-	return (0);
+	return (print_len);
 }

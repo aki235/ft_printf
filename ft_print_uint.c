@@ -10,7 +10,39 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_print_uint(unsigned int ui)
-{
+#include "ft_printf.h"
 
+int	ft_uint_len(unsigned int n)
+{
+	int	res;
+
+	res = 0;
+	if (n == 0)
+		return (1);
+	while (n > 0)
+	{
+		n = n / 10;
+		res++;
+	}
+	return (res);
+}
+
+int	ft_print_uint_write(unsigned int n)
+{
+	if (n >= 10)
+	{
+		ft_print_uint_write(n / 10);
+		ft_putchar_fd('0' + (n % 10), 1);
+	}
+	else if (n <= 9)
+	{
+		ft_putchar_fd('0' + n);
+		return ;
+	}
+}
+
+int	ft_print_uint(unsigned int n)
+{
+	ft_print_uint_write(n);
+	return (ft_uint_len(n));
 }
