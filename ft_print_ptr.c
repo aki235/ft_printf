@@ -19,7 +19,7 @@ int	ft_ptr_len(uintptr_t num)
 	if (num == 0)
 		return (1);
 	res = 0;
-	while (res > 0)
+	while (num > 0)
 	{
 		num = num / 16;
 		res++;
@@ -51,6 +51,7 @@ void	ft_print_ptr_write(uintptr_t num)
 
 int	ft_print_ptr(uintptr_t num)
 {
+	write(1, "0x", 2);
 	ft_print_ptr_write(num);
-	return (ft_ptr_len(num));
+	return (ft_ptr_len(num) + 2);
 }
