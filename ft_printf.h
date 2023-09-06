@@ -29,6 +29,6 @@ int	ft_print_ptr(uintptr_t num);
 int	ft_print_int(int d);
 int	ft_print_uint(unsigned int n);
 int	ft_print_hex(int x, char ul);
-int	ft_print_percent();
+int	ft_print_percent(void);
 
 #endif
