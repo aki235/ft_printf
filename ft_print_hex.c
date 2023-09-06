@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
+
 int	ft_hex_len(int x)
 {
 	int	res;
@@ -32,26 +34,26 @@ void	ft_print_hex_write_low(int x)
 {
 	int	tmp;
 
-	if (n < 0)
+	if (x < 0)
 	{
 		x = x * (-1);
 		ft_putchar_fd('-', 1);
 	}
 	if (x >= 16)
 	{
-		ft_print_hex_write_low(x / 16, 1);
+		ft_print_hex_write_low(x / 16);
 		tmp = x % 16;
 		if (tmp >= 10)
-			ft_putchar_fd('a' + tmp - 10);
+			ft_putchar_fd('a' + tmp - 10, 1);
 		else
-			ft_putchar_fd('0' + tmp);
+			ft_putchar_fd('0' + tmp, 1);
 	}
 	else
 	{
 		if (x >= 10)
-			ft_putchar_fd('a' + x - 10);
+			ft_putchar_fd('a' + x - 10, 1);
 		else
-			ft_putchar_fd('0' + x);
+			ft_putchar_fd('0' + x, 1);
 	}
 }
 
@@ -59,37 +61,37 @@ void	ft_print_hex_write_up(int x)
 {
 	int	tmp;
 
-	if (n < 0)
+	if (x < 0)
 	{
 		x = x * (-1);
 		ft_putchar_fd('-', 1);
 	}
 	if (x >= 16)
 	{
-		ft_print_hex_write_up(x / 16, 1);
+		ft_print_hex_write_up(x / 16);
 		tmp = x % 16;
 		if (tmp >= 10)
-			ft_putchar_fd('A' + tmp - 10);
+			ft_putchar_fd('A' + tmp - 10, 1);
 		else
-			ft_putchar_fd('0' + tmp);
+			ft_putchar_fd('0' + tmp, 1);
 	}
 	else
 	{
 		if (x >= 10)
-			ft_putchar_fd('A' + x - 10);
+			ft_putchar_fd('A' + x - 10, 1);
 		else
-			ft_putchar_fd('0' + x);
+			ft_putchar_fd('0' + x, 1);
 	}
 }
 
 int	ft_print_hex(int x, char ul)
 {
-	if (n == 0)
+	if (x == 0)
 	{
 		ft_putchar_fd('0', 1);
 		return (1);
 	}
-	else if (n == -2147483648)
+	else if (x == -2147483648)
 	{
 		ft_putstr_fd("-2147483648", 1);
 		return (11);
@@ -98,5 +100,5 @@ int	ft_print_hex(int x, char ul)
 		ft_print_hex_write_low(x);
 	else if (ul == 'X')
 		ft_print_hex_write_up(x);
-	return (ft_hex_len);
+	return (ft_hex_len(x));
 }

@@ -14,7 +14,7 @@
 
 int	ft_print_char(int c)
 {
-	ft_putchar_fd(1, &c, 1);
+	ft_putchar_fd(c, 1);
 	return (1);
 }
 
@@ -28,7 +28,7 @@ int	check_format(va_list args, const char *format)
 	else if (*format == 's')
 		print_len += ft_print_str(va_arg(args, char *));
 	else if (*format == 'p')
-		print_len += ft_print_ptr(va_arg(args, uintptr_t p));
+		print_len += ft_print_ptr(va_arg(args, uintptr_t));
 	else if (*format == 'd' || *format == 'i')
 		print_len += ft_print_int(va_arg(args, int));
 	else if (*format == 'u')

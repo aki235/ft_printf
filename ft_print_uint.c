@@ -27,7 +27,7 @@ int	ft_uint_len(unsigned int n)
 	return (res);
 }
 
-int	ft_print_uint_write(unsigned int n)
+void	ft_print_uint_write(unsigned int n)
 {
 	if (n >= 10)
 	{
@@ -36,7 +36,7 @@ int	ft_print_uint_write(unsigned int n)
 	}
 	else if (n <= 9)
 	{
-		ft_putchar_fd('0' + n);
+		ft_putchar_fd('0' + n, 1);
 		return ;
 	}
 }

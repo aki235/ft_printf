@@ -1,15 +1,16 @@
-NAME		= libftprintf.a
+NAME		=	libftprintf.a
 
-SRCS		= ft_printf.c
-OBJS		= $(SRCS:.c=.o)
+SRCS		=	ft_printf.c ft_print_hex.c ft_print_int.c ft_print_percent.c ft_print_ptr.c \
+				ft_print_str.c ft_print_uint.c
+OBJS		=	$(SRCS:.c=.o)
 
-CC			= cc
-CFLAGS		= -Wall -Wextra -Werror
+CC			=	cc
+CFLAGS		=	-Wall -Wextra -Werror
 
-LIBFT_PATH	= ./libft
-LIBFT		= $(LIBFT_PATH)/libft.a
+LIBFT_PATH	=	./libft
+LIBFT		=	$(LIBFT_PATH)/libft.a
 
-all:	$(NAME)
+all:		$(NAME)
 
 $(NAME):	$(LIBFT) $(OBJS)
 	cp $(LIBFT) $(NAME)

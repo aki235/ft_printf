@@ -14,7 +14,7 @@
 
 int	ft_print_str(char *s)
 {
-	int	len;
+	int	l;
 
 	if (!s)
 		return (0);

@@ -35,10 +35,10 @@ void	ft_print_ptr_write(uintptr_t num)
 	{
 		ft_print_ptr_write(num / 16);
 		tmp = num % 16;
-		if (num >= 10)
-			ft_putchar_fd('a' + num - 10, 1);
-		else if (9 >= num)
-			ft_putchar_fd('0' + num, 1);
+		if (tmp >= 10)
+			ft_putchar_fd('a' + tmp - 10, 1);
+		else if (9 >= tmp)
+			ft_putchar_fd('0' + tmp, 1);
 	}
 	else if (15 >= num)
 	{

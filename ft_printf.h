@@ -23,12 +23,12 @@
 int	ft_printf(const char *format, ...);
 int	check_format(va_list args, const char *format);
 
-ft_print_char(int c);
-ft_print_str(char *s);
-ft_print_ptr(uintptr_t num);
-ft_print_int(int d);
-ft_print_uint(unsigned int n);
-ft_print_hex(int x, char ul);
-ft_print_percent();
+int	ft_print_char(int c);
+int	ft_print_str(char *s);
+int	ft_print_ptr(uintptr_t num);
+int	ft_print_int(int d);
+int	ft_print_uint(unsigned int n);
+int	ft_print_hex(int x, char ul);
+int	ft_print_percent();
 
 #endif
