@@ -4,11 +4,14 @@
 
 int	main(void)
 {
-/* 	char	*str;
-	
-	str = "abc";
-	printf("ft_num: %d\n", ft_printf("ft: %p\n", str));
-	printf("origin_num: %d\n", printf("or: %p\n", str)); */
-	printf("%s\n", NULL);
-	ft_printf("%s\n", NULL);
+	int	n;
+
+	n = -1;
+
+
+	//printf("%x\n", n);
+	//ft_printf("%x\n", n);
+
+	printf("%u\n", -1);
+	ft_printf("%u", -1);
 }

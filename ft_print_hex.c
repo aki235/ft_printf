@@ -12,16 +12,13 @@
 
 #include "ft_printf.h"
 
-int	ft_hex_len(int x)
+int	ft_hex_len(unsigned int x)
 {
 	int	res;
 
 	res = 0;
-	if (x < 0)
-	{
-		x = x * (-1);
-		res++;
-	}
+	if (x == 0)
+		return (1);
 	while (x > 0)
 	{
 		x = x / 16;
@@ -30,15 +27,10 @@ int	ft_hex_len(int x)
 	return (res);
 }
 
-void	ft_print_hex_write_low(int x)
+void	ft_print_hex_write_low(unsigned int x)
 {
-	int	tmp;
+	unsigned int	tmp;
 
-	if (x < 0)
-	{
-		x = x * (-1);
-		ft_putchar_fd('-', 1);
-	}
 	if (x >= 16)
 	{
 		ft_print_hex_write_low(x / 16);
@@ -57,15 +49,10 @@ void	ft_print_hex_write_low(int x)
 	}
 }
 
-void	ft_print_hex_write_up(int x)
+void	ft_print_hex_write_up(unsigned int x)
 {
-	int	tmp;
+	unsigned int	tmp;
 
-	if (x < 0)
-	{
-		x = x * (-1);
-		ft_putchar_fd('-', 1);
-	}
 	if (x >= 16)
 	{
 		ft_print_hex_write_up(x / 16);
@@ -84,17 +71,12 @@ void	ft_print_hex_write_up(int x)
 	}
 }
 
-int	ft_print_hex(int x, char ul)
+int	ft_print_hex(unsigned int x, char ul)
 {
 	if (x == 0)
 	{
 		ft_putchar_fd('0', 1);
 		return (1);
-	}
-	else if (x == -2147483648)
-	{
-		ft_putstr_fd("-2147483648", 1);
-		return (11);
 	}
 	if (ul == 'x')
 		ft_print_hex_write_low(x);

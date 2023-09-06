@@ -34,9 +34,9 @@ int	check_format(va_list args, const char *format)
 	else if (*format == 'u')
 		print_len += ft_print_uint(va_arg(args, unsigned int));
 	else if (*format == 'x')
-		print_len += ft_print_hex(va_arg(args, int), *format);
+		print_len += ft_print_hex(va_arg(args, unsigned int), *format);
 	else if (*format == 'X')
-		print_len += ft_print_hex(va_arg(args, int), *format);
+		print_len += ft_print_hex(va_arg(args, unsigned int), *format);
 	else if (*format == '%')
 		print_len += ft_print_percent();
 	return (print_len);
