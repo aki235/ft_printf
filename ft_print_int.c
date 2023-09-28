@@ -17,8 +17,8 @@ int	ft_print_int(int d)
 	char	*str;
 	int		res;
 
+	ft_putnbr_fd(d, 1);
 	str = ft_itoa(d);
-	ft_print_str(str);
 	res = ft_strlen(str);
 	free(str);
 	return (res);
