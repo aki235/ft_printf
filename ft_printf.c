@@ -39,6 +39,8 @@ int	check_format(va_list args, const char *format)
 		print_len += ft_print_hex(va_arg(args, unsigned int), *format);
 	else if (*format == '%')
 		print_len += ft_print_percent();
+	else
+		return (-1);
 	return (print_len);
 }
 
@@ -55,6 +57,8 @@ int	ft_printf(const char *format, ...)
 		{
 			if (*(++format) == '\0')
 				break ;
+			if (check_format(args, format) == -1)
+				return (-1);
 			print_len += check_format(args, format);
 			format++;
 		}
