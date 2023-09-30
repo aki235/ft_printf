@@ -48,6 +48,7 @@ int	ft_printf(const char *format, ...)
 {
 	int		print_len;
 	va_list	args;
+	int		res_check_format;
 
 	va_start(args, format);
 	print_len = 0;
@@ -57,17 +58,15 @@ int	ft_printf(const char *format, ...)
 		{
 			if (*(++format) == '\0')
 				break ;
-			if (check_format(args, format) == -1)
+			res_check_format = check_format(args, format);
+			if (res_check_format == -1)
 				return (-1);
-			print_len += check_format(args, format);
-			format++;
+			print_len += res_check_format - 1;
 		}
 		else
-		{
 			ft_putchar_fd(*format, 1);
-			print_len++;
-			format++;
-		}
+		print_len++;
+		format++;
 	}
 	va_end(args);
 	return (print_len);
